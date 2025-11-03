@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class TitleCase {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter words: ");
+        String input = scanner.nextLine();
+
+        String output = toTitleCase(input);
+
+        System.out.println(output);
+
+        scanner.close();
+    }
+
+    public static String toTitleCase(String str) {
+        String[] words = str.split(" ");
+        StringBuilder titleCase = new StringBuilder();
+
+        for (String word : words) {
+            if (word.length() > 0) {
+                titleCase.append(Character.toUpperCase(word.charAt(0))).append(word.substring(1).toLowerCase()).append(" ");
+            }
+        }
+        return titleCase.toString().trim();
+    }
+}
